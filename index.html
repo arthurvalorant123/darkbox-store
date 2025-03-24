@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DarkBox - Loja VIP</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #0d0d1d; /* Azul escuro para o fundo */
+            margin: 0;
+            padding: 0;
+            color: white; /* Texto em branco para contrastar com o fundo escuro */
+        }
+        .header {
+            background-color: #1a1a2e; /* Azul escuro */
+            color: white;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave para dar destaque */
+        }
+        .header h1 {
+            margin: 0;
+            font-weight: bold;
+            color: #6a0dad; /* Roxo para destacar o nome DarkBox */
+        }
+        .header p {
+            font-size: 18px;
+            color: #ddd;
+        }
+        .shop-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+            padding: 20px;
+        }
+        .product {
+            background-color: #1a1a2e; /* Fundo escuro para os produtos */
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            width: 200px;
+            margin: 10px;
+            text-align: center;
+            padding: 20px;
+            transition: transform 0.3s ease-in-out; /* Efeito de hover suave */
+        }
+        .product:hover {
+            transform: scale(1.05); /* Aumenta o produto ao passar o mouse */
+        }
+        .product img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            border: 3px solid #6a0dad; /* Borda roxa para destacar a imagem */
+        }
+        .product h3 {
+            font-size: 20px;
+            margin: 10px 0;
+            color: #fff;
+        }
+        .product p {
+            font-size: 16px;
+            color: #bbb;
+        }
+        .product .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #fff;
+        }
+        .product .buy-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .product .buy-button:hover {
+            background-color: #218838;
+        }
+        .cart-container {
+            margin: 20px;
+            background-color: #1a1a2e; /* Fundo escuro para o carrinho */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .cart-container h2 {
+            margin: 0;
+            font-weight: bold;
+            color: #fff;
+        }
+        .cart-container .cart-items {
+            list-style-type: none;
+            padding: 0;
+            color: #bbb;
+        }
+        .cart-container .cart-items li {
+            margin-bottom: 10px;
+        }
+        .cart-container .total {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #fff;
+        }
+        .checkout-button {
+            background-color: #007bff; /* Azul escuro */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+        }
+        .checkout-button:hover {
+            background-color: #0056b3; /* Azul mais escuro */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <h1>DarkBox</h1>
+        <p>Bem-vindo à loja VIP dos nossos servidores! Aqui você encontra itens exclusivos para os melhores jogadores.</p>
+    </div>
+
+    <div class="shop-container">
+        <!-- Produto 1 -->
+        <div class="product" data-name="Dark" data-price="70">
+            <img src="https://via.placeholder.com/200x150" alt="Produto Dark">
+            <h3>Dark 🔥</h3> <!-- Emoji de fogo para "Dark" -->
+            <p>Produto de alta qualidade para você, nosso VIP.</p>
+            <p class="price">R$ 70,00</p>
+            <button class="buy-button" onclick="addToCart('Dark', 70)">Comprar</button>
+        </div>
+
+        <!-- Produto 2 -->
+        <div class="product" data-name="Férias" data-price="60">
+            <img src="https://via.placeholder.com/200x150" alt="Produto Férias">
+            <h3>Férias 🏖️</h3> <!-- Emoji de férias para "Férias" -->
+            <p>O item perfeito para suas férias!</p>
+            <p class="price">R$ 60,00</p>
+            <button class="buy-button" onclick="addToCart('Férias', 60)">Comprar</button>
+        </div>
+
+        <!-- Produto 3 -->
+        <div class="product" data-name="Verão" data-price="40">
+            <img src="https://via.placeholder.com/200x150" alt="Produto Verão">
+            <h3>Verão 🌞</h3> <!-- Emoji de sol para "Verão" -->
+            <p>Para aproveitar o calor com estilo.</p>
+            <p class="price">R$ 40,00</p>
+            <button class="buy-button" onclick="addToCart('Verão', 40)">Comprar</button>
+        </div>
+
+        <!-- Produto 4 -->
+        <div class="product" data-name="Creeper" data-price="20">
+            <img src="https://via.placeholder.com/200x150" alt="Produto Creeper">
+            <h3>Creeper 💥</h3> <!-- Emoji de Creeper para "Creeper" -->
+            <p>Itens para os fãs de Minecraft.</p>
+            <p class="price">R$ 20,00</p>
+            <button class="buy-button" onclick="addToCart('Creeper', 20)">Comprar</button>
+        </div>
+
+        <!-- Produto 5 -->
+        <div class="product" data-name="Diamante" data-price="10">
+            <img src="https://via.placeholder.com/200x150" alt="Produto Diamante">
+            <h3>Diamante 💎</h3> <!-- Emoji de diamante para "Diamante" -->
+            <p>Brilho e sofisticação em um só produto.</p>
+            <p class="price">R$ 10,00</p>
+            <button class="buy-button" onclick="addToCart('Diamante', 10)">Comprar</button>
+        </div>
+    </div>
+
+    <div class="cart-container">
+        <h2>Seu Carrinho</h2>
+        <ul class="cart-items" id="cart-items"></ul>
+        <div class="total" id="cart-total">Total: R$ 0,00</div>
+        <button class="checkout-button" onclick="checkout()">Finalizar Compra (Pix)</button>
+    </div>
+
+    <script>
+        let cart = [];
+
+        function addToCart(name, price) {
+            // Adiciona o item ao carrinho
+            cart.push({ name, price });
+            updateCart();
+        }
+
+        function updateCart() {
+            // Atualiza a lista de itens no carrinho
+            const cartItemsContainer = document.getElementById('cart-items');
+            const cartTotalContainer = document.getElementById('cart-total');
+
+            // Limpa o carrinho
+            cartItemsContainer.innerHTML = '';
+            let total = 0;
+
+            // Exibe os itens no carrinho
+            cart.forEach(item => {
+                const li = document.createElement('li');
+                li.textContent = `${item.name} - R$ ${item.price.toFixed(2)}`;
+                cartItemsContainer.appendChild(li);
+                total += item.price;
+            });
+
+            // Atualiza o valor total
+            cartTotalContainer.textContent = `Total: R$ ${total.toFixed(2)}`;
+        }
+
+        function checkout() {
+            if (cart.length === 0) {
+                alert("Seu carrinho está vazio!");
+                return;
+            }
+
+            // Redireciona o usuário para o link de Pix
+            window.location.href = "https://livepix.gg/darksmp";
+        }
+    </script>
+
+</body>
+</html>
